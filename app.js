@@ -74,16 +74,3 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Erro na configuração do query do Firestore:", error);
     }
 });
-
-// AQUI ESTÁ SEU ARQUIVO firebase.js (apenas para referência, não precisa ser alterado)
-/*
-// firebase.js
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-// ... config ...
-const firebaseConfig = { ... };
-
-// Inicializa Firebase
-export const app = initializeApp(firebaseConfig);
-
