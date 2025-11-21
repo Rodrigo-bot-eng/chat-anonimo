@@ -1,27 +1,70 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AskMe — Perguntas Anônimas</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Envie e receba perguntas anônimas de forma simples e rápida!" />
 
-    <!-- Script obrigatório do AdSense para verificação -->
-    <script async 
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5235801591695560"
-        crossorigin="anonymous"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+    <!-- Style -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5235801591695560" crossorigin="anonymous"></script>
 </head>
+
 <body>
 
-    <h1>AskMe — Perguntas Anônimas</h1>
+    <!-- 🔥 CONTADOR DE ONLINE (agora com classe clean) -->
+    <div id="onlineCounter" class="online-counter">
+        👤 0 online
+    </div>
 
-    <form id="askForm">
-        <textarea id="questionInput" placeholder="Escreva sua pergunta anonimamente..."></textarea>
-        <button type="submit">Enviar</button>
-    </form>
+    <header class="header">
+        <h1>AskMe — Perguntas Anônimas</h1>
+        <p class="subtitle">Envie perguntas de forma totalmente anônima 👀</p>
+    </header>
 
-    <h2>Perguntas recentes</h2>
-    <ul id="questionsList"></ul>
+    <main class="container">
+
+        <section class="form-section">
+            <form id="askForm">
+                <textarea id="questionInput" class="textarea" placeholder="Escreva sua pergunta anonimamente..."></textarea>
+                <button type="submit" class="btn">Enviar</button>
+            </form>
+        </section>
+
+        <section class="questions-section">
+            <h2>Perguntas recentes</h2>
+            <ul id="questionsList" class="questions-list"></ul>
+        </section>
+
+        <section class="extras">
+            <h2>Compartilhe seu link</h2>
+            <p class="share-text">Copie e envie para seus amigos fazerem perguntas!</p>
+
+            <div class="share-box">
+                <input id="shareLink" type="text" readonly value="https://chat-anonimo-kappa.vercel.app" />
+                <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('shareLink').value)">Copiar</button>
+            </div>
+
+            <div class="tips">
+                <h3>Dicas para bombar ✨</h3>
+                <ul>
+                    <li>Poste o link nos Stories do Instagram</li>
+                    <li>Use a bio do TikTok</li>
+                    <li>Peça perguntas no WhatsApp</li>
+                    <li>Crie temas: "Pergunte algo que nunca teve coragem 👀"</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
 
     <script type="module" src="firebase.js"></script>
     <script type="module" src="app.js"></script>

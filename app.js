@@ -9,17 +9,49 @@ import {
 
 import { db } from "./firebase.js";
 
+// ---- IMPORT para Realtime Database (contador online)
+import {
+    getDatabase,
+    ref,
+    onDisconnect,
+    set,
+    onValue
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("askForm");
     const input = document.getElementById("questionInput");
     const list = document.getElementById("questionsList");
 
-    if (!form || !input || !list) {
-        console.error("Erro: Um ou mais elementos DOM não foram encontrados.");
-        return;
-    }
+    // Contador online (onde vai aparecer)
+    const onlineBox = document.getElementById("onlineCounter");
 
-    // 1. Enviar pergunta
+    // ============================
+    //      0 — CONTADOR ONLINE
+    // ============================
+    const rtdb = getDatabase();
+    const userRef = ref(rtdb, "online/" + Math.random().toString(36).slice(2));
+
+    // Marca usuário como online
+    set(userRef, true);
+
+    // Remove quando usuário sair
+    onDisconnect(userRef).remove();
+
+    // Atualiza contador em tempo real
+    const totalRef = ref(rtdb, "online");
+    onValue(totalRef, (snapshot) => {
+        const data = snapshot.val();
+        const count = data ? Object.keys(data).length : 0;
+
+        if (onlineBox) {
+            onlineBox.textContent = `👤 ${count} online`;
+        }
+    });
+
+    // ============================
+    //      1 — ENVIAR PERGUNTA
+    // ============================
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
@@ -33,31 +65,38 @@ document.addEventListener("DOMContentLoaded", () => {
             });
             input.value = "";
         } catch (error) {
-            console.error("Erro ao adicionar documento ao Firestore:", error);
+            console.error("Erro ao adicionar documento:", error);
             alert("Não foi possível enviar a pergunta.");
         }
     });
 
-    // 2. Listar perguntas em tempo real
+    // ============================
+    //      2 — LISTAR PERGUNTAS
+    // ============================
     try {
         const q = query(
             collection(db, "questions"),
             orderBy("createdAt", "desc")
         );
 
-        onSnapshot(q, (snapshot) => {
-            list.innerHTML = "";
-            snapshot.forEach((doc) => {
-                const li = document.createElement("li");
-                li.className = "p-3 bg-white shadow-md rounded-lg mb-2"; 
-                li.textContent = doc.data().text;
-                list.appendChild(li);
-            });
-        }, (error) => {
-            console.error("Erro ao receber updates do Firestore:", error);
-            alert("Não foi possível carregar as perguntas recentes.");
-        });
+        onSnapshot(
+            q,
+            (snapshot) => {
+                list.innerHTML = "";
+                snapshot.forEach((doc) => {
+                    const li = document.createElement("li");
+                    li.className =
+                        "p-3 bg-white shadow-md rounded-lg mb-2";
+                    li.textContent = doc.data().text;
+                    list.appendChild(li);
+                });
+            },
+            (error) => {
+                console.error("Erro ao receber updates:", error);
+                alert("Não foi possível carregar perguntas.");
+            }
+        );
     } catch (error) {
-        console.error("Erro na configuração do query do Firestore:", error);
+        console.error("Erro no Firestore:", error);
     }
 });
