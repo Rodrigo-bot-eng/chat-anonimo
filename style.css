@@ -228,3 +228,20 @@ body {
     box-shadow: 0 0 12px #00ff9d88;
 }
 
+
+
+
+
+
+
+
+.ad-container {
+    width: 100%;
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 10px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 12px;
+    border: 1px solid #00ff9d33;
+}
+
