@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>AskMe — Perguntas Anônimas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>AskMe — Perguntas Anônimas</h1>
+
+    <form id="askForm">
+        <textarea id="questionInput" placeholder="Escreva sua pergunta anonimamente..."></textarea>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <h2>Perguntas recentes</h2>
+    <ul id="questionsList"></ul>
+     <script type="module" src="firebase.js"></script>
+    <script type="module" src="app.js"></script>
+</body>
+</html>
