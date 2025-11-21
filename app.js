@@ -8,7 +8,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 // Certifique-se de que a instância 'db' é importada corretamente.
-import { db } from "./firebase.js";
+import { db } from "firebase.js";
 
 // --- Envolver o código principal na função DOMContentLoaded ---
 document.addEventListener("DOMContentLoaded", () => {

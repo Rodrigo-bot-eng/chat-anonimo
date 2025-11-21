@@ -1,8 +1,7 @@
-// firebase.js
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-// CONFIG do seu projeto
+// CONFIG do seu projeto (Substitua por suas chaves reais se estiverem diferentes)
 const firebaseConfig = {
     apiKey: "AIzaSyD9xAD0aahy0e3FJOcXXDb6lQy10nQZ45g",
     authDomain: "chat-anonimo-fbe41.firebaseapp.com",
@@ -16,5 +15,5 @@ const firebaseConfig = {
 // Inicializa Firebase
 export const app = initializeApp(firebaseConfig);
 
-// Exporta Firestore
+// Exporta Firestore (Esta linha é a mais importante!)
 export const db = getFirestore(app);
