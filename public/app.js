@@ -27,18 +27,29 @@ document.addEventListener("DOMContentLoaded", () => {
     const onlineBox = document.getElementById("onlineCounter");
 
     // ============================
-    //      0 — CONTADOR ONLINE
+    //     0 — CONTADOR ONLINE (CORRIGIDO)
     // ============================
+
+    // Garante que cada visitante só tenha 1 ID (mesmo recarregando a página)
+    let visitorId = localStorage.getItem("visitorId");
+    if (!visitorId) {
+        visitorId = "user_" + Math.random().toString(36).slice(2);
+        localStorage.setItem("visitorId", visitorId);
+    }
+
     const rtdb = getDatabase();
-    const userRef = ref(rtdb, "online/" + Math.random().toString(36).slice(2));
+    const userRef = ref(rtdb, "online/" + visitorId);
 
     // Marca usuário como online
-    set(userRef, true);
+    set(userRef, {
+        online: true,
+        timestamp: Date.now()
+    });
 
-    // Remove quando usuário sair
+    // Remove quando usuário sai
     onDisconnect(userRef).remove();
 
-    // Atualiza contador em tempo real
+    // Atualiza contador
     const totalRef = ref(rtdb, "online");
     onValue(totalRef, (snapshot) => {
         const data = snapshot.val();
