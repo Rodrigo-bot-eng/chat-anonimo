@@ -3,83 +3,106 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AskMe — Perguntas Anônimas</title>
-    <meta name="description" content="Envie e receba perguntas anônimas de forma simples e rápida!" />
+
+    <title>Lançamentos em Destaque | Novidades de Games e Filmes</title>
+
+    <meta name="description" content="Confira os principais lançamentos de games, filmes e novidades do momento. Reviews, datas e análises completas." />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Style -->
     <link rel="stylesheet" href="style.css" />
-
-    <!-- Google AdSense (OBRIGATÓRIO) -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5235801591695560" crossorigin="anonymous"></script>
 </head>
 
 <body>
 
-    <!-- 🔥 CONTADOR DE ONLINE -->
-    <div id="onlineCounter" class="online-counter">
-        👤 0 online
-    </div>
+<!-- 🎥 VÍDEO DE FUNDO -->
+<video class="bg-video" autoplay muted loop playsinline>
+    <source src="fundo.mp4" type="video/mp4">
+</video>
+<div class="bg-overlay"></div>
 
-    <header class="header">
-        <h1>AskMe — Perguntas Anônimas</h1>
-        <p class="subtitle">Envie perguntas de forma totalmente anônima 👀</p>
-    </header>
+<header class="header fade-in">
+    <h1>Lançamentos em Destaque</h1>
+    <p class="subtitle">Novidades de games, filmes e entretenimento 🎮🎬</p>
 
-    <main class="container">
+    <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="./dropgames/dropgames.html">Games</a>
+        <a href="./filmes/filmes.html">Filmes</a>
+        <a href="#">Reviews</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="contato.html">Contato</a>
+    </nav>
+</header>
 
-        <section class="form-section">
-            <form id="askForm">
-                <textarea id="questionInput" class="textarea" placeholder="Escreva sua pergunta anonimamente..."></textarea>
-                <button type="submit" class="btn">Enviar</button>
-            </form>
-        </section>
+<main class="container">
 
-        <section class="questions-section">
-            <h2>Perguntas recentes</h2>
-            <ul id="questionsList" class="questions-list"></ul>
-        </section>
+    <!-- ⭐ DESTAQUES -->
+    <section class="highlight fade-in-delay">
+        <h2>🔥 Destaques da Semana</h2>
+        <p>
+            Fique por dentro dos lançamentos mais comentados do momento,
+            selecionados pela nossa equipe.
+        </p>
+    </section>
 
-        <section class="extras">
-            <h2>Compartilhe seu link</h2>
-            <p class="share-text">Copie e envie para seus amigos fazerem perguntas!</p>
+    <!-- 📝 POSTS -->
+    <section class="posts">
 
-            <div class="share-box">
-                <input id="shareLink" type="text" readonly value="https://chat-anonimo-kappa.vercel.app" />
-                <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('shareLink').value)">Copiar</button>
-            </div>
+        <article class="post slide-up">
+            <h2>🎮 Jogos que chegam ao Game Pass este mês</h2>
+            <p class="post-meta">Publicado em 02 de janeiro de 2026</p>
 
-            <div class="tips">
-                <h3>Dicas para bombar ✨</h3>
-                <ul>
-                    <li>Poste o link nos Stories do Instagram</li>
-                    <li>Use a bio do TikTok</li>
-                    <li>Peça perguntas no WhatsApp</li>
-                    <li>Crie temas: "Pergunte algo que nunca teve coragem 👀"</li>
-                </ul>
-            </div>
-        </section>
+            <p>
+                O Game Pass recebeu novos títulos neste mês, trazendo opções para fãs de RPG,
+                ação e aventura. Entre os destaques estão jogos muito aguardados pela comunidade.
+            </p>
 
-        <!-- 🔥 BLOCO DE ANÚNCIO DO ADSENSE (AGORA NO FINAL) -->
-        <div class="ad-container" style="margin-top: 30px;">
-            <ins class="adsbygoogle"
-                style="display:block;"
-                data-ad-client="ca-pub-5235801591695560"
-                data-ad-slot="1234567890"
-                data-ad-format="auto"
-                data-full-width-responsive="true"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
+            <p>
+                Além da variedade de gêneros, os lançamentos mostram o compromisso da Microsoft
+                em manter o catálogo sempre atualizado.
+            </p>
 
-    </main>
+            <a href="lermaisgamepass.html" class="read-more">Leia mais</a>
+        </article>
 
-    <script type="module" src="firebase.js"></script>
-    <script type="module" src="app.js"></script>
+        <article class="post slide-up">
+            <h2>🎬 Principais lançamentos de filmes da semana</h2>
+            <p class="post-meta">Publicado em 01 de janeiro de 2026</p>
+
+            <p>
+                A semana chega com estreias importantes nos cinemas e nos serviços de streaming.
+                Produções de ação, drama e ficção científica prometem agradar públicos diferentes.
+            </p>
+
+            <a href="lermaisfilmes.html" class="read-more">Leia mais</a>
+        </article>
+
+    </section>
+
+    <!-- 📌 SOBRE O SITE -->
+    <section class="info fade-in-delay">
+        <h2>📌 Por que acompanhar o Lançamentos em Destaque?</h2>
+        <ul>
+            <li>✔ Conteúdo original e atualizado</li>
+            <li>✔ Análises honestas e diretas</li>
+            <li>✔ Foco em games, filmes e streaming</li>
+            <li>✔ Site rápido e fácil de usar</li>
+        </ul>
+    </section>
+
+</main>
+
+<footer class="footer fade-in">
+    <p>© 2026 - Lançamentos em Destaque</p>
+    <p>
+        <a href="politica-de-privacidade.html">Política de Privacidade</a> |
+        <a href="termos.html">Termos de Uso</a>
+    </p>
+</footer>
+
 </body>
 </html>

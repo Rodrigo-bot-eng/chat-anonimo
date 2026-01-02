@@ -1,247 +1,298 @@
-/* ---- RESET ---- */
+/* ==================================================
+   RESET
+   ================================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* ==================================================
+   BASE
+   ================================================== */
 body {
     font-family: "Inter", sans-serif;
     background: linear-gradient(135deg, #0d0d12, #141421, #0f0f16);
     color: #e6e6e6;
     min-height: 100vh;
-    padding-bottom: 40px;
+    line-height: 1.6;
 }
 
-/* ---- CABEÇALHO ---- */
+/* ==================================================
+   VÍDEO DE FUNDO
+   ================================================== */
+.bg-video {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+    opacity: 0.3;
+}
+
+.bg-overlay {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(10,10,20,0.9),
+        rgba(15,15,30,0.95)
+    );
+    z-index: -1;
+}
+
+/* ==================================================
+   CABEÇALHO
+   ================================================== */
 .header {
     text-align: center;
-    padding: 40px 20px 20px;
+    padding: 48px 20px 32px;
 }
 
 .header h1 {
-    font-size: 28px;
+    font-size: 32px;
     font-weight: 700;
     color: #9c6bff;
-    text-shadow: 0 0 10px #9c6bff55;
+    text-shadow: 0 0 12px #9c6bff55;
 }
 
 .subtitle {
-    font-size: 15px;
-    opacity: .8;
+    margin-top: 8px;
+    font-size: 16px;
+    opacity: 0.85;
 }
 
-/* ---- CONTAINER PRINCIPAL ---- */
+/* ==================================================
+   MENU
+   ================================================== */
+.nav {
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.nav a {
+    color: #e6e6e6;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: 10px;
+    transition: all 0.25s ease;
+}
+
+.nav a:hover {
+    background: #9c6bff22;
+    color: #b88dff;
+    transform: translateY(-1px);
+}
+
+/* ==================================================
+   CONTAINER
+   ================================================== */
 .container {
     width: 92%;
-    max-width: 700px;
+    max-width: 900px;
     margin: 0 auto;
-    margin-top: 20px;
+    padding-bottom: 60px;
 }
 
-/* ---- FORMULÁRIO ---- */
-.form-section {
-    background: rgba(255, 255, 255, 0.03);
-    padding: 20px;
-    border-radius: 14px;
+/* ==================================================
+   SEÇÕES DE TEXTO (SOBRE, CONTATO, TERMOS, ETC)
+   ================================================== */
+.post,
+.highlight,
+.info {
+    background: rgba(255, 255, 255, 0.045);
+    padding: 28px;
+    border-radius: 18px;
     border: 1px solid #9c6bff22;
-    box-shadow: 0 0 12px #9c6bff22;
-    margin-bottom: 30px;
+    box-shadow: 0 0 18px #9c6bff22;
 }
 
-.textarea {
-    width: 100%;
-    height: 150px;
-    padding: 14px;
-    background: #1a1a25;
-    color: white;
-    font-size: 15px;
-    border: 1px solid #9c6bff33;
-    border-radius: 10px;
-    resize: none;
-    transition: .2s;
+.highlight,
+.info {
+    margin: 48px 0;
 }
 
-.textarea:focus {
-    border-color: #b48cff;
-    box-shadow: 0 0 10px #b48cff44;
-    outline: none;
-}
-
-.btn {
-    margin-top: 15px;
-    width: 100%;
-    background: #9c6bff;
-    color: black;
-    padding: 12px;
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    transition: .2s;
-}
-
-.btn:hover {
-    background: #b88dff;
-    box-shadow: 0 0 10px #b48cff55;
-}
-
-/* ---- PERGUNTAS ---- */
-.questions-section h2 {
-    text-align: center;
-    margin-bottom: 14px;
+.highlight h2,
+.info h2,
+.post h2 {
     color: #b88dff;
+    margin-bottom: 14px;
 }
 
-.questions-list {
-    list-style: none;
+/* ==================================================
+   POSTS
+   ================================================== */
+.posts {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 28px;
 }
 
-.questions-list li {
-    background: rgba(255, 255, 255, 0.05);
-    border-left: 4px solid #9c6bff;
-    padding: 14px;
-    border-radius: 10px;
-    border: 1px solid #9c6bff22;
-    line-height: 1.4rem;
+.post-meta {
+    font-size: 13px;
+    opacity: 0.65;
+    margin-bottom: 18px;
 }
 
-/* ---- ÁREA DE COMPARTILHAR ---- */
-.extras {
-    margin-top: 40px;
-    background: rgba(255, 255, 255, 0.04);
-    padding: 20px;
-    border-radius: 14px;
-    border: 1px solid #6a6aff33;
-    box-shadow: 0 0 12px #6a6aff33;
+.post p {
+    margin-bottom: 16px;
+    opacity: 0.96;
 }
 
-.extras h2 {
+.post ul {
+    padding-left: 20px;
+    margin-bottom: 16px;
+}
+
+.post li {
+    margin-bottom: 6px;
+}
+
+/* ==================================================
+   BOTÃO
+   ================================================== */
+.read-more {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 12px 18px;
+    background: linear-gradient(135deg, #9c6bff, #b88dff);
+    color: #000;
+    font-weight: 600;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.read-more:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 14px #b48cff88;
+}
+
+/* ==================================================
+   RODAPÉ
+   ================================================== */
+.footer {
     text-align: center;
-    color: #6a6aff;
-    margin-bottom: 10px;
+    padding: 36px 20px;
+    border-top: 1px solid #ffffff11;
+    margin-top: 60px;
 }
 
-.share-text {
-    text-align: center;
-    opacity: .85;
-    margin-bottom: 15px;
-}
-
-.share-box {
-    display: flex;
-    gap: 10px;
-    background: #1c1c28;
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid #6a6aff33;
-}
-
-.share-box input {
-    flex: 1;
-    background: transparent;
-    border: none;
-    color: white;
+.footer p {
     font-size: 14px;
+    opacity: 0.75;
 }
 
-.copy-btn {
-    background: #6a6aff;
-    border: none;
-    padding: 8px 14px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.copy-btn:hover {
-    background: #8787ff;
-}
-
-/* ---- LISTA DE DICAS ---- */
-.tips {
-    margin-top: 20px;
-}
-
-.tips h3 {
+.footer a {
     color: #9c6bff;
-    margin-bottom: 8px;
+    text-decoration: none;
 }
 
-.tips ul {
-    padding-left: 18px;
-    line-height: 1.6rem;
+.footer a:hover {
+    text-decoration: underline;
 }
 
-.tips li {
-    opacity: .85;
+/* ==================================================
+   ANIMAÇÕES
+   ================================================== */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-/* ---- RESPONSIVIDADE ---- */
-@media (max-width: 480px) {
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(32px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease forwards;
+}
+
+.fade-in-delay {
+    animation: fadeIn 1.4s ease forwards;
+}
+
+.slide-up {
+    animation: slideUp 0.9s ease forwards;
+}
+
+/* ==================================================
+   RESPONSIVO (CELULAR)
+   ================================================== */
+@media (max-width: 768px) {
+
+    body {
+        font-size: 15px;
+    }
+
+    .header {
+        padding: 32px 16px 24px;
+    }
+
     .header h1 {
         font-size: 22px;
     }
 
-    .textarea {
-        height: 130px;
+    .subtitle {
+        font-size: 14px;
     }
 
-    .btn {
+    .nav {
+        gap: 10px;
+    }
+
+    .nav a {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+
+    .container {
+        width: 94%;
+    }
+
+    .post,
+    .highlight,
+    .info {
+        padding: 20px;
+        border-radius: 16px;
+    }
+
+    .post h2 {
+        font-size: 18px;
+    }
+
+    .post-meta {
+        font-size: 12px;
+    }
+
+    .read-more {
+        width: 100%;
+        text-align: center;
         font-size: 15px;
     }
 
-    .share-box {
-        flex-direction: column;
+    .footer {
+        padding: 28px 16px;
     }
 
-    .copy-btn {
-        width: 100%;
+    .footer p {
+        font-size: 13px;
+    }
+
+    /* PERFORMANCE */
+    .bg-video {
+        display: none;
     }
 }
-
-
-/* ---- CONTADOR DE USUÁRIOS ONLINE ---- */
-.online-counter {
-    position: fixed;
-    top: 12px;
-    right: 12px;
-    background: rgba(0, 0, 0, 0.75);
-    padding: 8px 16px;
-    border-radius: 10px;
-    color: #00ff9d;
-    font-weight: 600;
-    font-size: 14px;
-    border: 1px solid #00ff9d55;
-    z-index: 9999;
-    backdrop-filter: blur(4px);
-    box-shadow: 0 0 8px #00ff9d33;
-    transition: 0.2s ease-in-out;
-}
-
-.online-counter:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 12px #00ff9d88;
-}
-
-
-
-
-
-
-
-
-.ad-container {
-    width: 100%;
-    max-width: 700px;
-    margin: 20px auto;
-    padding: 10px;
-    background: rgba(0,0,0,0.3);
-    border-radius: 12px;
-    border: 1px solid #00ff9d33;
-}
-
