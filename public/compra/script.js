@@ -1,21 +1,42 @@
-/* TIMER 10 MIN */
-let time = 600;
-const el = document.getElementById("time");
+// 🔊 ATIVAR ÁUDIO AO CLICAR
+const video = document.getElementById("bgVideo");
 
-setInterval(() => {
-  if (time <= 0) return;
-  time--;
-  const m = String(Math.floor(time / 60)).padStart(2, '0');
-  const s = String(time % 60).padStart(2, '0');
-  el.innerText = `${m}:${s}`;
-}, 1000);
-
-/* COPIAR PIX */
-function copiarPix() {
-  const chave = document.getElementById("pixKey").innerText;
-  navigator.clipboard.writeText(chave).then(() => {
-    const msg = document.getElementById("copyMsg");
-    msg.style.display = "block";
-    setTimeout(() => msg.style.display = "none", 3000);
-  });
+function ativarAudio() {
+  video.muted = false;
+  video.volume = 0.25;
+  video.play().catch(() => {});
+  document.removeEventListener("click", ativarAudio);
+  document.removeEventListener("touchstart", ativarAudio);
 }
+
+document.addEventListener("click", ativarAudio);
+document.addEventListener("touchstart", ativarAudio);
+
+// 📋 COPIAR PIX
+function copiarPix() {
+  const pix = document.getElementById("pixKey").innerText;
+  navigator.clipboard.writeText(pix);
+
+  document.getElementById("copyMsg").classList.add("show");
+}
+
+// ⏳ TIMER 10 MINUTOS
+let tempo = 10 * 60; // 10 minutos em segundos
+const timeEl = document.getElementById("time");
+const timerBox = document.getElementById("timerBox");
+
+const contador = setInterval(() => {
+  const minutos = Math.floor(tempo / 60);
+  const segundos = tempo % 60;
+
+  timeEl.innerText =
+    `${String(minutos).padStart(2, "0")}:${String(segundos).padStart(2, "0")}`;
+
+  if (tempo <= 0) {
+    clearInterval(contador);
+    timerBox.innerHTML = "⛔ Tempo esgotado. Gere um novo pagamento.";
+    timerBox.style.color = "#ff6b6b";
+  }
+
+  tempo--;
+}, 1000);

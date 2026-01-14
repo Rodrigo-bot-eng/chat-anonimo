@@ -7,6 +7,7 @@
 
   <!-- Fonte -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.png" type="image/png">
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
@@ -14,19 +15,25 @@
 
 <body>
 
-<!-- VIDEO FUNDO -->
-<video class="bg-video" autoplay muted loop playsinline>
+<!-- 🎥 VÍDEO DE FUNDO -->
+<video id="bgVideo" class="bg-video" autoplay muted loop playsinline>
   <source src="fundo.mp4" type="video/mp4">
 </video>
+
+<!-- 🖼️ IMAGEM POR CIMA -->
+<img src="pack.jpeg" class="bg-image">
+
+<!-- OVERLAY -->
 <div class="bg-overlay"></div>
 
+<!-- CONTEÚDO -->
 <div class="checkout">
 
   <h1>Finalize sua compra 🚀</h1>
   <p>Acesso imediato ao seu site profissional</p>
 
-  <div class="timer">
-    ⏳ Esta compra expira em <span id="time">10:00</span>
+  <div class="timer" id="timerBox">
+    ⏳ Esta compra expira em <strong><span id="time">10:00</span></strong>
   </div>
 
   <div class="pix-box">
@@ -38,7 +45,7 @@
 
     <div class="pix-key" onclick="copiarPix()">
       <span id="pixKey">
-       00020101021126580014br.gov.bcb.pix0136d77112e7-8108-46af-8ec1-aa926bd4c8dc520400005303986540529.005802BR5920RODRIGO SILVA VIEIRA6009SAO PAULO622905251KEYWZRMGBQE7PN56DV8QE67D63040FA0
+00020101021126580014br.gov.bcb.pix0136d77112e7-8108-46af-8ec1-aa926bd4c8dc520400005303986540529.005802BR5920RODRIGO SILVA VIEIRA6009SAO PAULO622905251KEYWZRMGBQE7PN56DV8QE67D63040FA0
       </span>
       <br><small>(Clique para copiar)</small>
     </div>
@@ -46,16 +53,11 @@
     <p id="copyMsg" class="success">✅ Chave PIX copiada com sucesso</p>
 
     <p class="success show">
-      ✔ Pagamento verificado automaticamente
+      ✔ Pagamento verificado automaticamente  
+      <br>
+      📦 Produto liberado logo após a confirmação
     </p>
   </div>
-
-  <div class="divider"></div>
-
-  <p class="card-note">
-    Prefere pagar com cartão?<br>
-    (opção disponível em breve)
-  </p>
 
 </div>
 

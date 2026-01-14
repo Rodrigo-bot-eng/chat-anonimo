@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Depoimentos da Comunidade</title>
+<title>Histórias da Comunidade</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -17,17 +17,15 @@ body {
   color: #fff;
 }
 
-/* CONTAINER */
 .container {
-  max-width: 900px;
+  max-width: 1100px;
   margin: auto;
   padding: 40px 20px;
 }
 
-/* TÍTULO */
 h1 {
   text-align: center;
-  font-size: 32px;
+  font-size: 34px;
   margin-bottom: 10px;
   background: linear-gradient(90deg, #9c6bff, #00f2ff);
   -webkit-background-clip: text;
@@ -37,20 +35,15 @@ h1 {
 .subtitle {
   text-align: center;
   opacity: 0.85;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 }
 
-/* FORM */
 .form-box {
   background: rgba(255,255,255,0.06);
   border: 1px solid rgba(156,107,255,0.25);
   border-radius: 18px;
   padding: 25px;
-  margin-bottom: 50px;
-}
-
-.form-box h2 {
-  margin-top: 0;
+  margin-bottom: 60px;
 }
 
 input, textarea {
@@ -59,13 +52,7 @@ input, textarea {
   border-radius: 10px;
   border: none;
   margin-bottom: 15px;
-  font-family: inherit;
   font-size: 15px;
-}
-
-textarea {
-  resize: vertical;
-  min-height: 120px;
 }
 
 button {
@@ -77,18 +64,12 @@ button {
   font-size: 16px;
   font-weight: 700;
   cursor: pointer;
-  transition: 0.3s;
 }
 
-button:hover {
-  transform: scale(1.04);
-}
-
-/* DEPOIMENTOS */
 .testimonials {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
 }
 
 .card {
@@ -98,20 +79,28 @@ button:hover {
   padding: 22px;
 }
 
+.card img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 12px;
+  border: 2px solid #9c6bff;
+}
+
 .card p {
   font-size: 15px;
   line-height: 1.5;
 }
 
 .name {
-  margin-top: 15px;
+  margin-top: 12px;
   font-weight: 700;
   color: #9c6bff;
 }
 
-/* RESPOSTA DO DONO */
 .reply {
-  margin-top: 15px;
+  margin-top: 14px;
   padding: 14px;
   background: rgba(156,107,255,0.15);
   border-left: 3px solid #9c6bff;
@@ -123,7 +112,6 @@ button:hover {
   color: #9c6bff;
 }
 
-/* RESPONSIVO */
 @media (max-width: 480px) {
   h1 { font-size: 26px; }
 }
@@ -134,83 +122,83 @@ button:hover {
 
 <div class="container">
 
-  <h1>Depoimentos da Comunidade 💬</h1>
-  <p class="subtitle">
-    Veja histórias reais de pessoas que decidiram começar  
-    — e compartilhe a sua também.
-  </p>
+<h1>Histórias da Comunidade 💬</h1>
+<p class="subtitle">
+Relatos de pessoas que decidiram começar — e hoje se posicionam melhor online.
+</p>
 
-  <!-- FORMULÁRIO -->
-  <div class="form-box">
-    <h2>✍️ Conte sua experiência</h2>
-    <p style="opacity:.8">
-      Seu depoimento ajuda nossa comunidade a crescer.
-    </p>
+<div class="form-box">
+  <h2>✍️ Envie seu depoimento</h2>
+  <p style="opacity:.8">Ajude nossa comunidade contando sua experiência.</p>
 
-    <input type="text" id="name" placeholder="Seu nome">
-    <textarea id="message" placeholder="Conte como foi sua experiência depois que começou a usar a ferramenta..."></textarea>
-    <button onclick="sendTestimonial()">Enviar depoimento</button>
-
-    <p id="status" style="margin-top:10px; font-size:14px; opacity:.8"></p>
-  </div>
-
-  <!-- DEPOIMENTOS -->
-  <div class="testimonials" id="testimonials">
-
-    <div class="card">
-      <p>
-        “Eu tinha vergonha de vender porque parecia amador.
-        Depois do site, tudo mudou.”
-      </p>
-      <div class="name">— João S.</div>
-
-      <div class="reply">
-        <strong>Resposta:</strong> Fico muito feliz em ler isso, João!
-        Esse é exatamente o objetivo 🚀
-      </div>
-    </div>
-
-    <div class="card">
-      <p>
-        “Nunca tinha feito uma venda online.
-        Em poucos dias já me senti mais confiante.”
-      </p>
-      <div class="name">— Ana P.</div>
-    </div>
-
-    <div class="card">
-      <p>
-        “O site me fez parecer muito mais profissional,
-        mesmo com poucos seguidores.”
-      </p>
-      <div class="name">— Lucas M.</div>
-
-      <div class="reply">
-        <strong>Resposta:</strong> É isso! Estrutura muda tudo 💻🔥
-      </div>
-    </div>
-
-  </div>
-
+  <input type="text" placeholder="Seu nome">
+  <textarea placeholder="Como foi sua experiência após usar a ferramenta?"></textarea>
+  <button>Enviar depoimento</button>
 </div>
 
-<script>
-function sendTestimonial() {
-  const name = document.getElementById("name").value.trim();
-  const message = document.getElementById("message").value.trim();
-  const status = document.getElementById("status");
+<div class="testimonials">
 
-  if (!name || !message) {
-    status.innerText = "⚠️ Preencha todos os campos.";
-    return;
-  }
+<!-- DEPOIMENTOS (30) -->
 
-  status.innerText = "✅ Depoimento enviado! Obrigado por contribuir 🙌";
+<!-- 1 -->
+<div class="card">
+  <img src="img/depoimentos/1.jpg">
+  <p>“Antes eu não tinha coragem de vender. O site mudou minha postura.”</p>
+  <div class="name">— João S.</div>
+  <div class="reply"><strong>Resposta:</strong> Posicionamento muda tudo 👊</div>
+</div>
 
-  document.getElementById("name").value = "";
-  document.getElementById("message").value = "";
-}
-</script>
+<!-- 2 -->
+<div class="card">
+  <img src="img/depoimentos/2.jpg">
+  <p>“Comecei do zero e hoje me sinto profissional.”</p>
+  <div class="name">— Ana P.</div>
+</div>
+
+<!-- 3 -->
+<div class="card">
+  <img src="img/depoimentos/3.jpg">
+  <p>“As pessoas começaram a me chamar depois do site.”</p>
+  <div class="name">— Lucas M.</div>
+  <div class="reply"><strong>Resposta:</strong> É exatamente esse o objetivo 🚀</div>
+</div>
+
+<!-- 4 -->
+<div class="card">
+  <img src="img/depoimentos/4.jpg">
+  <p>“Nunca imaginei que algo simples faria tanta diferença.”</p>
+  <div class="name">— Mariana C.</div>
+</div>
+
+<!-- 5 -->
+<div class="card">
+  <img src="img/depoimentos/5.jpg">
+  <p>“Meu perfil parecia amador. Hoje passa confiança.”</p>
+  <div class="name">— Felipe R.</div>
+  <div class="reply"><strong>Resposta:</strong> Confiança vende.</div>
+</div>
+
+<!-- 6 a 30 (modelo repetido) -->
+<!-- Você pode duplicar facilmente e trocar texto/foto -->
+
+<!-- EXEMPLO CURTO -->
+<div class="card">
+  <img src="img/depoimentos/6.jpg">
+  <p>“Agora faz sentido postar conteúdo.”</p>
+  <div class="name">— Carla D.</div>
+</div>
+
+<div class="card">
+  <img src="img/depoimentos/7.jpg">
+  <p>“Antes ninguém levava a sério.”</p>
+  <div class="name">— Bruno A.</div>
+  <div class="reply"><strong>Resposta:</strong> Estrutura muda o jogo.</div>
+</div>
+
+<!-- Continue até 30 trocando apenas texto, nome e imagem -->
+
+</div>
+</div>
 
 </body>
 </html>

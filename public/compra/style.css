@@ -1,16 +1,19 @@
+/* ================= RESET ================= */
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
+/* ================= BASE ================= */
 body {
-  margin: 0;
   font-family: "Inter", sans-serif;
-  min-height: 100vh;
   color: #fff;
+  min-height: 100vh;
   overflow-x: hidden;
 }
 
-/* VIDEO FUNDO */
+/* ================= VÍDEO DE FUNDO ================= */
 .bg-video {
   position: fixed;
   inset: 0;
@@ -18,140 +21,192 @@ body {
   height: 100%;
   object-fit: cover;
   z-index: -3;
+  filter: brightness(0.75) contrast(1.1);
 }
 
+/* ================= IMAGEM POR CIMA ================= */
+.bg-image {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.28;
+  z-index: -2;
+  animation: slowZoom 22s linear infinite;
+}
+
+@keyframes slowZoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.06); }
+}
+
+/* ================= OVERLAY ================= */
 .bg-overlay {
   position: fixed;
   inset: 0;
   background: linear-gradient(
-    180deg,
-    rgba(10, 8, 25, 0.8),
-    rgba(5, 5, 15, 0.95)
+    135deg,
+    rgba(10,10,20,0.88),
+    rgba(15,15,30,0.95)
   );
-  z-index: -2;
+  z-index: -1;
 }
 
-/* CONTAINER */
+/* ================= CONTAINER ================= */
 .checkout {
   max-width: 420px;
-  margin: 60px auto;
-  background: rgba(255,255,255,0.06);
-  backdrop-filter: blur(16px);
-  padding: 30px;
-  border-radius: 20px;
-  border: 1px solid rgba(156,107,255,0.35);
-  box-shadow: 0 25px 80px rgba(0,0,0,.7);
+  margin: auto;
+  padding: 42px 20px;
   text-align: center;
-  animation: fadeUp .8s ease;
+  animation: fadeInUp 0.9s ease;
 }
 
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.checkout h1 {
+/* ================= TÍTULO ================= */
+h1 {
   font-size: 26px;
+  margin-bottom: 8px;
   background: linear-gradient(90deg, #9c6bff, #00f2ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 8px;
 }
 
-.checkout p {
-  font-size: 15px;
-  opacity: .9;
-}
-
-/* TIMER */
+/* ================= TIMER ================= */
 .timer {
+  margin: 18px 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
   background: linear-gradient(135deg, #ff0055, #ff6b00);
   padding: 12px;
   border-radius: 14px;
-  font-weight: 700;
-  margin: 18px 0;
-  animation: pulse 1.4s infinite;
+  animation: pulseTimer 1.4s infinite;
+  box-shadow: 0 0 25px rgba(255, 80, 80, 0.55);
 }
 
-@keyframes pulse {
+@keyframes pulseTimer {
   0% { transform: scale(1); }
-  50% { transform: scale(1.04); }
+  50% { transform: scale(1.05); }
   100% { transform: scale(1); }
 }
 
-/* PIX */
+/* ================= PIX BOX ================= */
 .pix-box {
-  background: #fff;
-  color: #000;
-  border-radius: 18px;
-  padding: 22px;
-  margin-top: 20px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 26px;
+  margin-top: 24px;
+  border: 1px solid rgba(156,107,255,0.35);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 0 40px rgba(156,107,255,0.25);
 }
 
 .pix-box h2 {
-  margin: 0;
-  font-size: 20px;
+  color: #fff;
+  margin-bottom: 12px;
 }
 
+/* ================= QR CODE ================= */
 .pix-box img {
-  width: 220px;
-  margin: 16px auto;
+  width: 200px;
+  margin: 18px auto;
   display: block;
-  border-radius: 14px;
-  box-shadow: 0 15px 35px rgba(0,0,0,.35);
+  border-radius: 16px;
+  background: #fff;
+  padding: 10px;
+  animation: qrGlow 3s ease-in-out infinite;
 }
 
-/* CHAVE PIX */
+@keyframes qrGlow {
+  0% {
+    box-shadow: 0 0 12px rgba(156,107,255,0.4);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(156,107,255,0.8);
+  }
+  100% {
+    box-shadow: 0 0 12px rgba(156,107,255,0.4);
+  }
+}
+
+/* ================= CHAVE PIX ================= */
 .pix-key {
-  background: #f1f1f1;
+  background: rgba(0,0,0,0.45);
   padding: 14px;
   border-radius: 12px;
-  font-weight: 600;
-  font-size: 14px;
-  word-break: break-all;
-  margin-top: 12px;
-  border: 1px dashed #bbb;
   cursor: pointer;
-  transition: .25s;
+  font-size: 12px;
+  word-break: break-all;
+  transition: all 0.25s ease;
+  border: 1px dashed rgba(255,255,255,0.25);
 }
 
 .pix-key:hover {
-  background: #e6e6e6;
-  transform: scale(1.02);
+  background: rgba(0,0,0,0.65);
+  transform: scale(1.03);
+  border-color: #9c6bff;
 }
 
+/* ================= SUCESSO ================= */
 .success {
   margin-top: 12px;
-  font-size: 14px;
-  color: #00c97d;
-  font-weight: 700;
+  font-size: 13px;
+  color: #9cffb8;
   display: none;
+  animation: fadeUp 0.5s ease forwards;
 }
 
 .success.show {
   display: block;
 }
 
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= DIVISOR ================= */
 .divider {
   margin: 28px 0;
   height: 1px;
   background: linear-gradient(90deg, transparent, #9c6bff, transparent);
-  opacity: .6;
+  opacity: 0.5;
 }
 
+/* ================= TEXTO CARTÃO ================= */
 .card-note {
   font-size: 13px;
-  opacity: .7;
+  opacity: 0.7;
 }
 
-/* RESPONSIVO */
+/* ================= RESPONSIVO ================= */
 @media (max-width: 480px) {
+  h1 {
+    font-size: 22px;
+  }
+
   .checkout {
-    margin: 30px 15px;
-    padding: 24px;
+    padding: 30px 16px;
   }
 
   .pix-box img {
-    width: 200px;
+    width: 180px;
   }
 }
