@@ -100,7 +100,7 @@ body {
 }
 
 /* ==================================================
-   SEÇÕES DE TEXTO (SOBRE, CONTATO, TERMOS, ETC)
+   SEÇÕES DE TEXTO (SOBRE, BENEFÍCIOS, KIT)
    ================================================== */
 .post,
 .highlight,
@@ -125,7 +125,7 @@ body {
 }
 
 /* ==================================================
-   POSTS
+   POSTS / DEPOIMENTOS
    ================================================== */
 .posts {
     display: flex;
@@ -136,7 +136,9 @@ body {
 .post-meta {
     font-size: 13px;
     opacity: 0.65;
-    margin-bottom: 18px;
+    margin-top: 12px;
+    text-align: right;
+    font-style: italic;
 }
 
 .post p {
@@ -154,27 +156,33 @@ body {
 }
 
 /* ==================================================
-   BOTÃO
+   BOTÃO DE COMPRA
    ================================================== */
+.btn,
 .read-more {
     display: inline-block;
     margin-top: 14px;
-    padding: 12px 18px;
+    padding: 14px 22px;
     background: linear-gradient(135deg, #9c6bff, #b88dff);
     color: #000;
-    font-weight: 600;
+    font-weight: 700;
     border-radius: 12px;
     text-decoration: none;
     transition: all 0.25s ease;
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+    box-shadow: 0 4px 15px #9c6bff55;
 }
 
+.btn:hover,
 .read-more:hover {
     transform: translateY(-2px);
-    box-shadow: 0 0 14px #b48cff88;
+    box-shadow: 0 0 24px #b48cff88;
 }
 
 /* ==================================================
-   RODAPÉ
+   FOOTER
    ================================================== */
 .footer {
     text-align: center;
@@ -277,7 +285,8 @@ body {
         font-size: 12px;
     }
 
-    .read-more {
+    .read-more,
+    .btn {
         width: 100%;
         text-align: center;
         font-size: 15px;
@@ -294,5 +303,181 @@ body {
     /* PERFORMANCE */
     .bg-video {
         display: none;
+    }
+}
+/* ==================================================
+   PRICE BOX (PREÇO)
+   ================================================== */
+.price-box {
+    margin: 32px auto 20px;
+    padding: 24px;
+    max-width: 420px;
+    background: linear-gradient(
+        135deg,
+        rgba(156,107,255,0.18),
+        rgba(184,141,255,0.12)
+    );
+    border-radius: 18px;
+    border: 1px solid #9c6bff55;
+    box-shadow: 0 0 35px #9c6bff44;
+    text-align: center;
+    backdrop-filter: blur(12px);
+}
+
+.price-box.small {
+    max-width: 360px;
+}
+
+.old-price {
+    text-decoration: line-through;
+    opacity: 0.6;
+    font-size: 14px;
+}
+
+.promo-price {
+    font-size: 28px;
+    font-weight: 800;
+    color: #b88dff;
+    text-shadow: 0 0 15px #9c6bff88;
+    margin: 6px 0;
+}
+
+.price-info {
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+.urgency {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #ffd86b;
+}
+
+/* ==================================================
+   BOTÃO DE COMPRA (UPGRADE)
+   ================================================== */
+.buy-button {
+    margin-top: 18px;
+    text-align: center;
+}
+
+.btn {
+    width: 100%;
+    max-width: 340px;
+}
+
+.btn:hover {
+    animation: pulse 0.8s infinite alternate;
+}
+
+@keyframes pulse {
+    from { box-shadow: 0 0 15px #9c6bff66; }
+    to { box-shadow: 0 0 28px #b88dffcc; }
+}
+
+/* ==================================================
+   GARANTIA
+   ================================================== */
+.guarantee-text {
+    margin-top: 10px;
+    font-size: 13px;
+    opacity: 0.75;
+}
+
+/* ==================================================
+   ANTES vs DEPOIS
+   ================================================== */
+.compare {
+    margin: 48px 0;
+    text-align: center;
+}
+
+.compare h2 {
+    margin-bottom: 24px;
+    color: #b88dff;
+}
+
+.compare-box {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.compare-box div {
+    padding: 22px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 16px;
+    border: 1px solid #ffffff12;
+}
+
+.compare-box h3 {
+    margin-bottom: 12px;
+    font-size: 18px;
+}
+
+.compare-box p {
+    font-size: 14px;
+    opacity: 0.85;
+    margin-bottom: 6px;
+}
+
+/* ==================================================
+   RESPONSIVO EXTRA
+   ================================================== */
+@media (max-width: 768px) {
+
+    .promo-price {
+        font-size: 24px;
+    }
+
+    .compare-box {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ==================================================
+   NOTIFICAÇÃO DE COMPRA
+   ================================================== */
+.purchase-notification {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    background: rgba(25, 25, 40, 0.95);
+    border: 1px solid #9c6bff55;
+    color: #fff;
+    padding: 14px 18px;
+    border-radius: 14px;
+    font-size: 14px;
+    box-shadow: 0 0 25px #9c6bff55;
+    backdrop-filter: blur(10px);
+    z-index: 9999;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+}
+
+.purchase-notification strong {
+    color: #b88dff;
+}
+
+.purchase-notification.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.purchase-notification.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .purchase-notification {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        font-size: 13px;
+        text-align: center;
     }
 }

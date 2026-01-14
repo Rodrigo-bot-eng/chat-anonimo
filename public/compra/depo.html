@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Histórias da Comunidade</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: radial-gradient(circle at top, #1b1a2a, #0d0d12);
+  color: #fff;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 34px;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #9c6bff, #00f2ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  text-align: center;
+  opacity: 0.85;
+  margin-bottom: 50px;
+}
+
+.form-box {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(156,107,255,0.25);
+  border-radius: 18px;
+  padding: 25px;
+  margin-bottom: 60px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+
+button {
+  background: linear-gradient(135deg, #9c6bff, #6a4bff);
+  color: #fff;
+  border: none;
+  padding: 14px 25px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+}
+
+.card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 18px;
+  padding: 22px;
+}
+
+.card img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 12px;
+  border: 2px solid #9c6bff;
+}
+
+.card p {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.name {
+  margin-top: 12px;
+  font-weight: 700;
+  color: #9c6bff;
+}
+
+.reply {
+  margin-top: 14px;
+  padding: 14px;
+  background: rgba(156,107,255,0.15);
+  border-left: 3px solid #9c6bff;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.reply strong {
+  color: #9c6bff;
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 26px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Histórias da Comunidade 💬</h1>
+<p class="subtitle">
+Relatos de pessoas que decidiram começar — e hoje se posicionam melhor online.
+</p>
+
+<div class="form-box">
+  <h2>✍️ Envie seu depoimento</h2>
+  <p style="opacity:.8">Ajude nossa comunidade contando sua experiência.</p>
+
+  <input type="text" placeholder="Seu nome">
+  <textarea placeholder="Como foi sua experiência após usar a ferramenta?"></textarea>
+  <button>Enviar depoimento</button>
+</div>
+
+<div class="testimonials">
+
+<!-- DEPOIMENTOS (30) -->
+
+<!-- 1 -->
+<div class="card">
+  <img src="img/depoimentos/1.jpg">
+  <p>“Antes eu não tinha coragem de vender. O site mudou minha postura.”</p>
+  <div class="name">— João S.</div>
+  <div class="reply"><strong>Resposta:</strong> Posicionamento muda tudo 👊</div>
+</div>
+
+<!-- 2 -->
+<div class="card">
+  <img src="img/depoimentos/2.jpg">
+  <p>“Comecei do zero e hoje me sinto profissional.”</p>
+  <div class="name">— Ana P.</div>
+</div>
+
+<!-- 3 -->
+<div class="card">
+  <img src="img/depoimentos/3.jpg">
+  <p>“As pessoas começaram a me chamar depois do site.”</p>
+  <div class="name">— Lucas M.</div>
+  <div class="reply"><strong>Resposta:</strong> É exatamente esse o objetivo 🚀</div>
+</div>
+
+<!-- 4 -->
+<div class="card">
+  <img src="img/depoimentos/4.jpg">
+  <p>“Nunca imaginei que algo simples faria tanta diferença.”</p>
+  <div class="name">— Mariana C.</div>
+</div>
+
+<!-- 5 -->
+<div class="card">
+  <img src="img/depoimentos/5.jpg">
+  <p>“Meu perfil parecia amador. Hoje passa confiança.”</p>
+  <div class="name">— Felipe R.</div>
+  <div class="reply"><strong>Resposta:</strong> Confiança vende.</div>
+</div>
+
+<!-- 6 a 30 (modelo repetido) -->
+<!-- Você pode duplicar facilmente e trocar texto/foto -->
+
+<!-- EXEMPLO CURTO -->
+<div class="card">
+  <img src="img/depoimentos/6.jpg">
+  <p>“Agora faz sentido postar conteúdo.”</p>
+  <div class="name">— Carla D.</div>
+</div>
+
+<div class="card">
+  <img src="img/depoimentos/7.jpg">
+  <p>“Antes ninguém levava a sério.”</p>
+  <div class="name">— Bruno A.</div>
+  <div class="reply"><strong>Resposta:</strong> Estrutura muda o jogo.</div>
+</div>
+
+<!-- Continue até 30 trocando apenas texto, nome e imagem -->
+
+</div>
+</div>
+
+</body>
+</html>

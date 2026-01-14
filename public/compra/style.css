@@ -1,0 +1,157 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  min-height: 100vh;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* VIDEO FUNDO */
+.bg-video {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -3;
+}
+
+.bg-overlay {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 8, 25, 0.8),
+    rgba(5, 5, 15, 0.95)
+  );
+  z-index: -2;
+}
+
+/* CONTAINER */
+.checkout {
+  max-width: 420px;
+  margin: 60px auto;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(16px);
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid rgba(156,107,255,0.35);
+  box-shadow: 0 25px 80px rgba(0,0,0,.7);
+  text-align: center;
+  animation: fadeUp .8s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.checkout h1 {
+  font-size: 26px;
+  background: linear-gradient(90deg, #9c6bff, #00f2ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 8px;
+}
+
+.checkout p {
+  font-size: 15px;
+  opacity: .9;
+}
+
+/* TIMER */
+.timer {
+  background: linear-gradient(135deg, #ff0055, #ff6b00);
+  padding: 12px;
+  border-radius: 14px;
+  font-weight: 700;
+  margin: 18px 0;
+  animation: pulse 1.4s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+  100% { transform: scale(1); }
+}
+
+/* PIX */
+.pix-box {
+  background: #fff;
+  color: #000;
+  border-radius: 18px;
+  padding: 22px;
+  margin-top: 20px;
+}
+
+.pix-box h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.pix-box img {
+  width: 220px;
+  margin: 16px auto;
+  display: block;
+  border-radius: 14px;
+  box-shadow: 0 15px 35px rgba(0,0,0,.35);
+}
+
+/* CHAVE PIX */
+.pix-key {
+  background: #f1f1f1;
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  word-break: break-all;
+  margin-top: 12px;
+  border: 1px dashed #bbb;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.pix-key:hover {
+  background: #e6e6e6;
+  transform: scale(1.02);
+}
+
+.success {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #00c97d;
+  font-weight: 700;
+  display: none;
+}
+
+.success.show {
+  display: block;
+}
+
+.divider {
+  margin: 28px 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #9c6bff, transparent);
+  opacity: .6;
+}
+
+.card-note {
+  font-size: 13px;
+  opacity: .7;
+}
+
+/* RESPONSIVO */
+@media (max-width: 480px) {
+  .checkout {
+    margin: 30px 15px;
+    padding: 24px;
+  }
+
+  .pix-box img {
+    width: 200px;
+  }
+}
